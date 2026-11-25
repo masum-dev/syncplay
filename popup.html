@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SyncPlay</title>
+        <link rel="stylesheet" href="popup.css" />
+    </head>
+    <body>
+        <main class="container">
+            <header class="header">
+                <div class="brand">
+                    <div class="logo-mark">
+                        <img
+                            src="icons/icon128.png"
+                            alt="SyncPlay"
+                            class="logo-img"
+                        />
+                    </div>
+                    <div class="brand-text">
+                        <h1>SyncPlay</h1>
+                        <p>YouTube ↔ YT Music</p>
+                    </div>
+                </div>
+                <span id="status-pill" class="pill pill-active">Active</span>
+            </header>
+
+            <section class="card control-card">
+                <div class="control-info">
+                    <span class="control-title">Auto-Switch Audio</span>
+                    <span id="control-desc" class="control-desc"
+                        >Music syncs with video playback</span
+                    >
+                </div>
+                <label class="switch" aria-label="Toggle SyncPlay">
+                    <input type="checkbox" id="toggle-enabled" checked />
+                    <span class="slider"></span>
+                </label>
+            </section>
+
+            <section class="card status-card">
+                <div class="section-label">Connected Tabs</div>
+
+                <div class="tab-row">
+                    <div class="tab-meta">
+                        <svg
+                            class="tab-icon"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                        <span>YouTube</span>
+                    </div>
+                    <div class="tab-status">
+                        <span id="yt-dot" class="dot dot-idle"></span>
+                        <span id="yt-text" class="status-text"
+                            >Checking...</span
+                        >
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="tab-row">
+                    <div class="tab-meta">
+                        <svg
+                            class="tab-icon"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                        </svg>
+                        <span>YouTube Music</span>
+                    </div>
+                    <div class="tab-status">
+                        <span id="ytm-dot" class="dot dot-idle"></span>
+                        <span id="ytm-text" class="status-text"
+                            >Checking...</span
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <span>Pause Video → Plays Music</span>
+                <span class="sep">|</span>
+                <span>Play Video → Pauses Music</span>
+            </footer>
+        </main>
+
+        <script src="popup.js"></script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "SyncPlay",
+    "version": "1.0.0",
+    "description": "Automatically pauses YouTube Music when a YouTube video plays, and resumes music when you pause the video.",
+    "icons": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "permissions": ["storage", "tabs"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "SyncPlay",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "32": "icons/icon32.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://www.youtube.com/*"],
+            "js": ["content-youtube.js"],
+            "run_at": "document_idle"
+        },
+        {
+            "matches": ["*://music.youtube.com/*"],
+            "js": ["content-ytmusic.js"],
+            "run_at": "document_idle"
+        }
+    ]
+}
